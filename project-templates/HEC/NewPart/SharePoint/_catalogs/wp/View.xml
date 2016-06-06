@@ -1,0 +1,41 @@
+﻿<View Name="{$guid5$}"
+      MobileView="TRUE"
+      Type="HTML" 
+      DisplayName="Aktuelle News" 
+      Url="/Seiten/Forms/Aktuelle News.aspx" 
+      Level="1" 
+      BaseViewID="1" 
+      ContentTypeID="0x" 
+      ImageUrl="/_layouts/15/images/dlicon.png?rev=23" >
+  
+  
+  <Query>
+    <Where>
+      <And>
+        <Contains>
+          <FieldRef Name = "bp_title"/>
+          <Value Type = "Text">{boxString}</Value>
+        </Contains>
+        <Eq>
+          <FieldRef Name="ContentType"/>
+          <Value Type="Computed">News Page</Value>
+        </Eq>
+      </And>
+    </Where>
+  </Query>
+  
+  <ViewFields>
+    <FieldRef Name="FileLeafRef"/>
+    <FieldRef Name="bp_title"/>
+    <FieldRef Name="bp_publishDate"/>
+    <FieldRef Name="bp_teasertext"/>
+    <FieldRef Name="bp_news_subhead"/>
+    <FieldRef Name="bp_image"/>
+  </ViewFields>
+  
+  <RowLimit Paged="TRUE">30</RowLimit>
+  <Aggregations Value="Off"/>
+  <JSLink>clienttemplates.js</JSLink>
+  <XslLink Default="TRUE">main.xsl</XslLink>
+  <Toolbar Type="Standard"/>
+</View>
