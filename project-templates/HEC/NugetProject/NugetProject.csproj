@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{$GUID1$}</ProjectGuid>
+    <nupkgFilePath>Z:\visualstudio\Nuget-Feed</nupkgFilePath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="$safeprojectname$.1.0.0.nuspec" />
+    <None Include="tools\init.ps1" />
+	<None Include="packages.config" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <Folder Include="build\" />
+    <Folder Include="content\" />
+    <Folder Include="lib\" />
+  </ItemGroup>
+  
+  <Target Name="Build">
+    <Message Text="=== Build $(Configuration) configuration ===" />
+    <ItemGroup>
+      <oldNupkgFiles Include="bin\**\*.nupkg" />
+      <nuspecFiles Include="*.nuspec" />
+    </ItemGroup>
+    <Delete Files="@(oldNupkgFiles)" />    
+    <Exec Command="$(SolutionDir)\packages\NugetExecutable.1.0.0\tools\nuget pack @(nuspecFiles) -OutputDirectory bin -Prop Configuration=$(Configuration)">
+    </Exec>
+    <ItemGroup>
+      <nupkgFiles Include="bin\**\*.nupkg" />
+    </ItemGroup>    
+    <Copy SourceFiles="@(nupkgFiles)" DestinationFolder="$(nupkgFilePath)\%(RecursiveDir)" />
+  </Target>
+  
+  <Target Name="ReBuild" DependsOnTargets="Build">
+    <Message Text="=== ReBuild $(Configuration) configuration ===" />
+  </Target>
+  
+  <Target Name="Clean" DependsOnTargets="Build">
+    <Message Text="=== Clean $(Configuration) configuration ===" />
+  </Target>
+  
+  <Target Name="Compile" DependsOnTargets="Build">
+    <Message Text="=== COMPILING $(Configuration) configuration ===" />
+  </Target>
+  
+  <Target Name="PublishOnly" DependsOnTargets="Build">
+    <Message Text="=== COMPILING $(Configuration) configuration ===" />
+  </Target>
+</Project>

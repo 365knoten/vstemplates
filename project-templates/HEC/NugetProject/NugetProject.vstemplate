@@ -1,0 +1,28 @@
+<VSTemplate Version="3.0.0" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" Type="Project">
+  <TemplateData>
+    <Name>NugetProject</Name>
+    <Description>Template für ein Nuget Paket</Description>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>
+    </ProjectSubType>
+    <SortOrder>1000</SortOrder>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>NugetProject</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+    <LocationField>Enabled</LocationField>
+    <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+    <Icon>__TemplateIcon.ico</Icon>
+  </TemplateData>
+  <TemplateContent>
+    <Project TargetFileName="NugetProject.csproj" File="NugetProject.csproj" ReplaceParameters="true">
+      <Folder Name="build" TargetFolderName="build" />
+      <Folder Name="content" TargetFolderName="content" />
+      <Folder Name="lib" TargetFolderName="lib" />	  
+      <ProjectItem ReplaceParameters="true" TargetFileName="$safeprojectname$.1.0.0.nuspec">NugetProject.1.0.0.nuspec</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
+      <Folder Name="tools" TargetFolderName="tools">
+        <ProjectItem ReplaceParameters="true" TargetFileName="init.ps1">init.ps1</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+</VSTemplate>

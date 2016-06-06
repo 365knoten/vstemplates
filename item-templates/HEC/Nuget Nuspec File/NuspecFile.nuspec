@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$safeprojectname$</id>
+    <version>1.0.0</version>
+    <authors>$userdomain$/$username$</authors>
+    <owners>$userdomain$/$username$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>TODO Beschreibung hier eingeben</description>
+    <releaseNotes></releaseNotes>
+    <copyright>Copyright $year$"</copyright>
+    <tags>HEC $safeprojectname$</tags>
+  </metadata>
+</package>
