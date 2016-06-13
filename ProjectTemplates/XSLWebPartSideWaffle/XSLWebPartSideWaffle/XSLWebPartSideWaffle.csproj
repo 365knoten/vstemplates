@@ -49,6 +49,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>XSLWebPartSideWaffle.webpart</LastGenOutput>
     </Content>
+    <Content Include="sw-file-icon.png" />
+    <Content Include="_Definitions\_project.vstemplate.xml" />
+    <Content Include="_preprocess.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SharePoint\_catalogs\wp\View.xml" />
